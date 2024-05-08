@@ -15,21 +15,28 @@ $today = [
 	'm' => date('m'),
 	'd' => date('d'),
 ];
-//処理対象年月
-$trg = [
-	'y' => date('Y', $trg_date ),
-	'm' => date('m', $trg_date ),
-];
 
-//月の日データ
-$data = MakeCalendarData( $trg_date );
+//処理年
+$proc_year = date('Y', $trg_date );
+$rows = [];
+for( $mon = 1; $mon <= 12; $mon ++ ) {
+	$proc_date = strtotime( "{$proc_year}-{$mon}-1" );
+	//処理対象年月
+	$trg = [
+		'y' => $proc_year,
+		'm' => $mon,
+	];
 
-//祝日処理
-$holidays = GetHolidayData( $trg );
+	//月の日データ
+	$data = MakeCalendarData( $proc_date );
 
-$rows = MakeCalendarHtml( $today, $data, $trg, $holidays );
+	//祝日処理
+	$holidays = GetHolidayData( $trg );
 
-echo MakeView( 'index.tpl', $trg_date, $rows );
+	$rows[$mon] = MakeCalendarHtml( $today, $data, $trg, $holidays );
+}
+
+echo MakeViewYear( 'index.tpl', $proc_date, $rows );
 exit;
 
 //-------------------------------------------------------------
