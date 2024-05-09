@@ -18,7 +18,7 @@ services:
     # docker/appディレクトリにあるDockerfileを使って、コンテナをビルドするという指定
     build: ./docker/web
     # コンテナの名前を指定
-    container_name: web
+    container_name: beginapp_web
     # ローカルのディレクトリとコンテナ上のディレクトリのリンクを設定
     # ./src は docker-composer.yml のディレクトリ直下にある src を設定している
     # コンテナが作成されると src ディレクトリからコンテナの /var/www/html にアクセスすることができる
@@ -33,7 +33,7 @@ services:
   db:
     # Docker HubからMySQL5.7の公式イメージをダウンロードしてくる指定
     image: mysql:5.7
-    container_name: db
+    container_name: beginapp_db
  
     # コンテナ内の環境変数を指定
     environment:

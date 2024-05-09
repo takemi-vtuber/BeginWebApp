@@ -1,3 +1,5 @@
 .vscode
 docker/db/data/*
 !docker/db/data/.gitkeep
+src/log/*
+!src/log/.gitkeep
