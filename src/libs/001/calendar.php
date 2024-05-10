@@ -33,6 +33,30 @@ function getNextMonth( $proc_date ) {
 	}
 	return "{$year}-{$month}-1";
 }
+/**
+ * 前月の1日の日付文字列を取得
+ *
+ * @param int $prc_date
+ * @return string
+ */
+function getPrevYear( $proc_date ) {
+	$year = date( 'Y', $proc_date );
+	$year --;
+	return "{$year}-1-1";
+}
+
+/**
+ * 翌月の1日の日付文字列を取得
+ *
+ * @param int $proc_date
+ * @return string
+ */
+function getNextYear( $proc_date ) {
+	$year = date( 'Y', $proc_date );
+	$year ++;
+
+	return "{$year}-1-1";
+}
 
 /**
  * カレンダーのデータを生成する
