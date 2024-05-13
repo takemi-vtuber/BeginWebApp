@@ -13,6 +13,7 @@ services:
       - lochalhost:192.168.96.1
     # どのポートを開いて繋ぐか。下記はコンテナの80番ポートを開いて、ホストの80番につなぐ
     ports:
+      - "222:22"
       - "8001:80"
       - "8443:443"
     # docker/appディレクトリにあるDockerfileを使って、コンテナをビルドするという指定
@@ -25,7 +26,6 @@ services:
     volumes:
       - ./src:/var/www/html/trunk:cached
     tty: true
-    #command: php-fpm && httpd -k start
 
 # ----------------------------------
 # MySQLを動かすコンテナ
