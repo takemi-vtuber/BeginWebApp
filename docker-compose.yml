@@ -1,6 +1,3 @@
-# Compose fileのバージョン指定
-version: '3'
-
 # どんなコンテナを立ち上げるか
 services:
  # ---------------------------------
@@ -8,14 +5,14 @@ services:
  # ---------------------------------
   app:
     #networks:
-    #  - smm_network
-    extra_hosts:
-      - lochalhost:192.168.96.1
+    #  - beginapp_network
+    #extra_hosts:
+    #  - lochalhost:192.168.96.10
     # どのポートを開いて繋ぐか。下記はコンテナの80番ポートを開いて、ホストの80番につなぐ
     ports:
-      - "222:22"
+    #  - "222:22"
       - "8001:80"
-      - "8443:443"
+    #  - "8443:443"
     # docker/appディレクトリにあるDockerfileを使って、コンテナをビルドするという指定
     build: ./docker/web
     # コンテナの名前を指定
